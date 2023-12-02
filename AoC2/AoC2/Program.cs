@@ -1,8 +1,8 @@
 ﻿namespace AoC2;
 
-internal readonly record struct Bag(int Red, int Green, int Blue);
+public readonly record struct Bag(int Red, int Green, int Blue);
 
-internal class Game
+public class Game
 {
     // Max amount for each
     private readonly int _red;
@@ -12,7 +12,7 @@ internal class Game
     public int Id { get; }
     public int PowerOfCubes => _red * _green * _blue;
 
-    internal Game(string line)
+    public Game(string line)
     {
         Id = int.Parse(line.Split(":")[0].Split(" ")[1]);
         
@@ -32,7 +32,7 @@ internal class Game
     public bool PossibleWithBag(in Bag bag) => bag.Red >= _red && bag.Green >= _green && bag.Blue >= _blue;
 }
 
-internal static class Program
+public static class Program
 {
     public static void Main()
     {
