@@ -1,6 +1,6 @@
 ﻿namespace AoC2;
 
-internal record Bag(int Red, int Green, int Blue);
+internal readonly record struct Bag(int Red, int Green, int Blue);
 
 internal class Game
 {
