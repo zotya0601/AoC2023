@@ -10,6 +10,7 @@ internal class Game
     private readonly int _blue;
 
     public int Id { get; }
+    public int PowerOfCubes => _red * _green * _blue;
 
     internal Game(string line)
     {
@@ -28,8 +29,7 @@ internal class Game
         _blue = res["blue"].Single().Amount;
     }
 
-    public bool PossibleWithBag(Bag bag) => bag.Red >= _red && bag.Green >= _green && bag.Blue >= _blue;
-    public int GetPowerOfDies() => _red * _green * _blue;
+    public bool PossibleWithBag(in Bag bag) => bag.Red >= _red && bag.Green >= _green && bag.Blue >= _blue;
 }
 
 internal static class Program
@@ -45,7 +45,7 @@ internal static class Program
             .Sum(game => game.Id);
         Console.WriteLine($"Sum of IDs is {sum}");
 
-        long power = games.Sum(game => game.GetPowerOfDies());
-        Console.WriteLine($"Power of dies is {power}");
+        long power = games.Sum(game => game.PowerOfCubes);
+        Console.WriteLine($"Power of cubes is {power}");
     }
 }
