@@ -5,3 +5,7 @@ Dockerfile
 
 bin/
 obj/
+
+*.sln.DotSettings.user
+
+*.beam
